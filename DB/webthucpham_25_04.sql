@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0-rc1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 20, 2022 lúc 04:45 PM
--- Phiên bản máy phục vụ: 10.4.22-MariaDB
--- Phiên bản PHP: 7.4.26
+-- Máy chủ: localhost:3306
+-- Thời gian đã tạo: Th4 25, 2022 lúc 05:15 AM
+-- Phiên bản máy phục vụ: 5.7.33
+-- Phiên bản PHP: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,8 +32,8 @@ CREATE TABLE `articles` (
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `summary` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `summary` text COLLATE utf8mb4_unicode_ci,
+  `description` text COLLATE utf8mb4_unicode_ci,
   `type` int(11) DEFAULT NULL,
   `position` int(11) NOT NULL,
   `status` int(11) DEFAULT NULL,
@@ -74,10 +74,10 @@ CREATE TABLE `banners` (
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `target` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `type` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `position` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `is_active` int(10) UNSIGNED NOT NULL DEFAULT 1,
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `type` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `position` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `is_active` int(10) UNSIGNED NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
@@ -108,8 +108,8 @@ CREATE TABLE `brands` (
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `website` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `position` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `is_active` int(10) UNSIGNED NOT NULL DEFAULT 1,
+  `position` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `is_active` int(10) UNSIGNED NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
@@ -138,8 +138,8 @@ CREATE TABLE `categories` (
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `parent_id` int(10) UNSIGNED DEFAULT NULL,
-  `position` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `is_active` tinyint(2) UNSIGNED NOT NULL DEFAULT 1 COMMENT '1: hiển thị, \r\n0: ko hiển thị',
+  `position` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `is_active` tinyint(2) UNSIGNED NOT NULL DEFAULT '1' COMMENT '1: hiển thị, \r\n0: ko hiển thị',
   `type` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -176,7 +176,7 @@ CREATE TABLE `contacts` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
@@ -191,7 +191,8 @@ INSERT INTO `contacts` (`id`, `name`, `phone`, `email`, `content`, `created_at`,
 (32, 'Trần Hoàng Lịch', '0182399892', 'tk@gmail.com', 'Hello', '2020-12-10 21:24:15', '2020-12-10 21:24:15'),
 (34, 'Lịch Trần', '0966778032', 'bohuc01081997@gmail.com', 'Xin chào tôi muốn mua thứ gì đó', '2020-12-13 02:42:21', '2020-12-13 02:42:21'),
 (35, 'Trần Hoàng Lịch', '0966778032', 'lichvjp97@yahoo.com.vn', 'ádsaadas', '2020-12-15 03:45:05', '2020-12-15 03:45:05'),
-(36, 'bohuc97', '0966778032', 'bohuc01081997@gmail.com', 'Xin chào', '2020-12-23 07:38:38', '2020-12-23 07:38:38');
+(36, 'bohuc97', '0966778032', 'bohuc01081997@gmail.com', 'Xin chào', '2020-12-23 07:38:38', '2020-12-23 07:38:38'),
+(37, 'Phuc Vu', '(+84) 987324831', 'phucbo9898@gmail.com', 'ấd', '2022-04-24 22:11:23', '2022-04-24 22:11:23');
 
 -- --------------------------------------------------------
 
@@ -273,13 +274,13 @@ CREATE TABLE `orders` (
   `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `discount` int(11) DEFAULT 0,
-  `note` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `discount` int(11) DEFAULT '0',
+  `note` text COLLATE utf8mb4_unicode_ci,
   `coupon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
-  `total` int(11) DEFAULT 0,
-  `user_id` int(11) DEFAULT 0,
-  `order_status_id` int(11) DEFAULT 0,
-  `payment_id` int(11) DEFAULT 0,
+  `total` int(11) DEFAULT '0',
+  `user_id` int(11) DEFAULT '0',
+  `order_status_id` int(11) DEFAULT '0',
+  `payment_id` int(11) DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
@@ -309,7 +310,8 @@ INSERT INTO `orders` (`id`, `code`, `fullname`, `email`, `address`, `address2`, 
 (26, 'DH-26-19042022', 'Phuc Vu', 'phucbo9898@gmail.com', 'Đề Thám Thái Bình', NULL, '0969908298', 0, NULL, '0', 60000, 0, 1, 0, '2022-04-19 03:08:01', '2022-04-19 03:08:01'),
 (27, 'DH-27-19042022', 'Phuc Vu', 'phucbo9898@gmail.com', 'Đề Thám Thái Bình', NULL, '0969908298', 0, NULL, '0', 60000, 0, 1, 0, '2022-04-19 03:34:04', '2022-04-19 03:34:04'),
 (28, 'DH-28-20042022', 'Phuc Vu', 'phucbo9898@gmail.com', 'Đề Thám Thái Bình', NULL, '0969908298', 0, NULL, '0', 600000, 0, 1, 0, '2022-04-19 19:39:25', '2022-04-19 19:39:25'),
-(29, 'DH-29-20042022', 'Phuc Vu', 'phucbo9898@gmail.com', 'Đề Thám Thái Bình', NULL, '0969.908.298', 0, NULL, '0', 41400000, 0, 3, 0, '2022-04-19 19:41:23', '2022-04-19 19:41:43');
+(29, 'DH-29-20042022', 'Phuc Vu', 'phucbo9898@gmail.com', 'Đề Thám Thái Bình', NULL, '0969.908.298', 0, NULL, '0', 41400000, 0, 3, 0, '2022-04-19 19:41:23', '2022-04-19 19:41:43'),
+(30, 'DH-30-23042022', 'test01', 'phucbo9898@gmail.com', 'Đề Thám Thái Bình', NULL, '0964938256', 0, NULL, '0', 60000, 0, 1, 0, '2022-04-22 18:23:29', '2022-04-22 18:23:29');
 
 -- --------------------------------------------------------
 
@@ -334,19 +336,6 @@ CREATE TABLE `order_detail` (
 --
 
 INSERT INTO `order_detail` (`id`, `name`, `image`, `sku`, `user_id`, `order_id`, `product_id`, `price`, `qty`) VALUES
-(2, NULL, NULL, '', NULL, 9, 43, 17980000, 2),
-(3, NULL, NULL, '', NULL, 9, 30, 7990000, 1),
-(4, NULL, NULL, '', NULL, 10, 30, 7990000, 1),
-(5, NULL, NULL, '', NULL, 10, 44, 14800000, 2),
-(6, NULL, NULL, '', NULL, 11, 30, 7990000, 1),
-(7, 'Iphone 7 Plus 32GB - NEW', 'uploads/product/1584949065_iphone-7-plus-gold-400x460-400x460.png', NULL, 0, 13, 30, 15980000, 2),
-(8, 'Apple Watch S5 LTE 40mm viền nhôm dây cao su', 'uploads/product/1586667604_apple-watch-s5-lte-40mm-vien-nhom-day-cao-su-ava-400x400.jpg', NULL, 0, 14, 50, 2900000, 1),
-(9, 'ASUS ROG Phone 2 512GB', 'uploads/product/1584948535__600x600__crop_600_asus_rog_phone2_min_1.jpg', NULL, 0, 14, 28, 20490000, 1),
-(10, 'Iphone 7 Plus 32GB - NEW', 'uploads/product/1584949065_iphone-7-plus-gold-400x460-400x460.png', NULL, 0, 15, 30, 7990000, 1),
-(11, 'Iphone 7 Plus 32GB - NEW', 'uploads/product/1584949065_iphone-7-plus-gold-400x460-400x460.png', NULL, 0, 16, 30, 47940000, 6),
-(12, 'ASUS ROG Phone 2 512GB', 'uploads/product/1584948535__600x600__crop_600_asus_rog_phone2_min_1.jpg', NULL, 0, 16, 28, 20490000, 1),
-(13, 'Oppo Reno 2F', 'uploads/product/1584946658_oppo-reno2-f-400x460.png', NULL, 0, 17, 12, 15980000, 2),
-(14, 'Chanh không hạt', 'uploads/product/1607958105_canh không hạt.png', NULL, NULL, 18, 81, 48000, 1),
 (15, 'Cherry', 'upload/product/1607593471_cherry.jpg', NULL, NULL, 19, 91, 480000, 1),
 (16, 'Cherry', 'upload/product/1607593471_cherry.jpg', NULL, NULL, 20, 91, 480000, 1),
 (17, 'Táo NewZeland', 'upload/product/1607593350_Tao_Newzealand.png', NULL, NULL, 21, 90, 60000, 1),
@@ -358,7 +347,8 @@ INSERT INTO `order_detail` (`id`, `name`, `image`, `sku`, `user_id`, `order_id`,
 (23, 'Táo NewZeland', 'upload/product/1607593350_Tao_Newzealand.png', NULL, NULL, 26, 90, 60000, 1),
 (24, 'Táo NewZeland', 'upload/product/1607593350_Tao_Newzealand.png', NULL, NULL, 27, 90, 60000, 1),
 (25, 'Táo NewZeland', 'upload/product/1607593350_Tao_Newzealand.png', NULL, NULL, 28, 90, 60000, 10),
-(26, 'Táo NewZeland', 'upload/product/1607593350_Tao_Newzealand.png', NULL, NULL, 29, 90, 60000, 690);
+(26, 'Táo NewZeland', 'upload/product/1607593350_Tao_Newzealand.png', NULL, NULL, 29, 90, 60000, 690),
+(27, 'Táo NewZeland', 'upload/product/1607593350_Tao_Newzealand.png', NULL, NULL, 30, 90, 60000, 1);
 
 -- --------------------------------------------------------
 
@@ -404,20 +394,20 @@ CREATE TABLE `products` (
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `stock` int(11) NOT NULL DEFAULT 0,
-  `price` int(11) NOT NULL DEFAULT 0,
-  `sale` int(11) NOT NULL DEFAULT 0,
-  `position` int(11) NOT NULL DEFAULT 0,
-  `is_active` int(11) NOT NULL DEFAULT 1,
-  `is_hot` int(11) NOT NULL DEFAULT 0,
-  `category_id` int(11) NOT NULL DEFAULT 0,
+  `stock` int(11) NOT NULL DEFAULT '0',
+  `price` int(11) NOT NULL DEFAULT '0',
+  `sale` int(11) NOT NULL DEFAULT '0',
+  `position` int(11) NOT NULL DEFAULT '0',
+  `is_active` int(11) NOT NULL DEFAULT '1',
+  `is_hot` int(11) NOT NULL DEFAULT '0',
+  `category_id` int(11) NOT NULL DEFAULT '0',
   `parent_id` int(10) DEFAULT NULL,
   `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `brand_id` int(11) NOT NULL DEFAULT 0,
-  `vendor_id` int(11) NOT NULL DEFAULT 0,
-  `summary` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_id` int(11) NOT NULL DEFAULT 0,
+  `brand_id` int(11) NOT NULL DEFAULT '0',
+  `vendor_id` int(11) NOT NULL DEFAULT '0',
+  `summary` text COLLATE utf8mb4_unicode_ci,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `user_id` int(11) NOT NULL DEFAULT '0',
   `unit` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -454,7 +444,7 @@ INSERT INTO `products` (`id`, `name`, `slug`, `image`, `stock`, `price`, `sale`,
 (88, 'Vú sữa', 'vu-sua', 'upload/product/1607592782_Vu sua.jpg', 700, 80000, 75000, 24, 1, 1, 71, 61, NULL, 28, 27, '<h2>C&ocirc;ng dụng quả v&uacute; sữa</h2>\r\n\r\n<h3>V&uacute; sữa chứa c&aacute;c dưỡng chất gi&uacute;p cơ thể khỏe mạnh</h3>\r\n\r\n<p>Ở phần thịt quả v&uacute; sữa c&oacute; c&aacute;c dưỡng chất như: sắt, photpho, calo, protein, magie,&hellip; Khi ăn v&uacute; sữa, c&aacute;c dưỡng chất n&agrave;y sẽ được ch&uacute;ng ta hấp thu gi&uacute;p cơ thể được khỏe mạnh, tăng sức đề kh&aacute;ng. Ngo&agrave;i ra, v&uacute; sữa c&ograve;n rất tốt cho trẻ em v&agrave; phụ nữ đang c&oacute; thai v&agrave; cho con b&uacute;.</p>\r\n\r\n<p>Loại&nbsp;<a href=\"https://gianongsan.org/trai-cay/\">tr&aacute;i c&acirc;y</a>&nbsp;n&agrave;y ngo&agrave;i c&aacute;c dưỡng chất tr&ecirc;n c&ograve;n c&oacute; vitamin C, vitamin A, vitamin nh&oacute;m B, gi&uacute;p cho cơ thể c&oacute; sức đề kh&aacute;ng tốt, s&aacute;ng da, tr&aacute;nh c&aacute;c bệnh thị lực. Chất chống oxy h&oacute;a c&oacute; trong v&uacute; sữa sẽ gi&uacute;p ngăn ngừa bệnh ung thư, gi&uacute;p da hồng h&agrave;o hơn, trị c&aacute;c bệnh nhiễm tr&ugrave;ng.</p>\r\n\r\n<h3>Gi&agrave;u chất xơ</h3>\r\n\r\n<p>Lượng chất xơ v&agrave; nước c&oacute; trong quả v&uacute; sữa cao, từ đ&oacute; quả v&uacute; sữa sẽ gi&uacute;p giảm được glucose trong m&aacute;u. Ngo&agrave;i ra, nhờ v&agrave;o lượng chất xơ n&agrave;y, bạn c&oacute; thể trị t&aacute;o b&oacute;n, tr&aacute;nh ăn kh&ocirc;ng ti&ecirc;u.</p>\r\n\r\n<p>Ngo&agrave;i ra, v&igrave; h&agrave;m lượng chất xơ c&oacute; trong v&uacute; sữa rất cao sẽ l&agrave;m dịu dạ d&agrave;y, gi&uacute;p ti&ecirc;u h&oacute;a chậm v&agrave; hấp thu dưỡng chất nhiều hơn, bạn sẽ kh&ocirc;ng c&oacute; cảm gi&aacute;c đ&oacute;i, gi&uacute;p giảm c&acirc;n hiệu quả</p>\r\n\r\n<h3>V&uacute; sữa gi&uacute;p xương chắc khỏe</h3>\r\n\r\n<p>Theo c&aacute;c nh&agrave; khoa học, lượng canxi trung b&igrave;nh c&oacute; trong 100g v&uacute; sữa l&agrave; 18mg canxi. V&igrave; thế, ăn quả v&uacute; sữa sẽ gi&uacute;p cho xương được chắc khỏe, đặc biệt l&agrave; trẻ em đang trong độ tuổi ph&aacute;t triển.</p>', NULL, 0, '800g', '2020-12-10 02:33:02', '2020-12-30 00:28:08');
 INSERT INTO `products` (`id`, `name`, `slug`, `image`, `stock`, `price`, `sale`, `position`, `is_active`, `is_hot`, `category_id`, `parent_id`, `url`, `brand_id`, `vendor_id`, `summary`, `description`, `user_id`, `unit`, `created_at`, `updated_at`) VALUES
 (89, 'Xoài', 'xoai', 'upload/product/1607592985_qua_xoai.png', 700, 40000, 36000, 25, 1, 0, 71, 61, NULL, 28, 27, '<h2>Chống ung thư</h2>\r\n\r\n<p>Theo một nghi&ecirc;n cứu được tiến h&agrave;nh bởi Khoa Dinh dưỡng của Trường Y tế c&ocirc;ng cộng Harvard, một chế độ ăn gi&agrave;u beta-carotene (chất c&oacute; trong xo&agrave;i) cũng c&oacute; thể đ&oacute;ng vai tr&ograve; chống lại ung thư tuyến tiền liệt. Hơn nữa, trong một nghi&ecirc;n cứu được thực hiện bởi Texas AgriLife Research, c&aacute;c nh&agrave; khoa học thực phẩm đ&atilde; thử nghiệm chiết xuất polypheno từ xo&agrave;i tr&ecirc;n đại tr&agrave;ng, v&uacute;, phổi, bệnh bạch cầu v&agrave; m&ocirc; ung thư tuyến tiền liệt; xo&agrave;i đ&atilde; được chứng minh l&agrave; c&oacute; một số t&aacute;c động đối với tất cả c&aacute;c bệnh ung thư được thử nghiệm nhưng hiệu quả nhất với ung thư v&uacute; v&agrave; ung thư ruột kết.</p>\r\n\r\n<h2>Gi&uacute;p chắc xương</h2>\r\n\r\n<p>Một nghi&ecirc;n cứu đ&aacute;ng kinh ngạc từ Đại học bang Oklahoma đ&atilde; kh&aacute;m ph&aacute; vai tr&ograve; của chế độ ăn uống trong điều trị bệnh lo&atilde;ng xương, Trong khi cho chuột ăn 1 trong 6 chế độ ăn nhiều chất b&eacute;o, c&aacute;c nh&agrave; nghi&ecirc;n cứu đ&atilde; bao gồm xo&agrave;i sấy kh&ocirc; trong chế độ ăn của chuột. Những con chuột c&oacute; 1% xo&agrave;i trong chế độ ăn nhiều chất b&eacute;o của ch&uacute;ng cho thấy BMD [mật độ kho&aacute;ng xương] to&agrave;n bộ cơ thể, cột sống v&agrave; xương ch&agrave;y đều cao hơn.</p>\r\n\r\n<p>Điều th&uacute; vị ở đ&acirc;y l&agrave; những con chuột được cho ăn 1% xo&agrave;i c&oacute; kết quả củng cố xương tốt hơn so với những con nhận được 10% xo&agrave;i. Điều n&agrave;y c&oacute; nghĩa l&agrave; nếu ăn nhiều hơn kh&ocirc;ng nhất thiết l&agrave; tốt hơn bởi v&igrave; xo&agrave;i c&oacute; nhiều đường v&agrave; qu&aacute; nhiều đường g&acirc;y hại cho xương của bạn.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>Tốt cho người bị tiểu đường</h2>\r\n\r\n<p>Xo&agrave;i gần đ&acirc;y được x&aacute;c định l&agrave; một loại thực phẩm đặc biệt hữu &iacute;ch trong cuộc chiến chống lại bệnh tiểu đường v&agrave; một nghi&ecirc;n cứu mới được thực hiện tại &Uacute;c đ&atilde; cụ thể h&oacute;a điều n&agrave;y. Ăn 1 quả xo&agrave;i mỗi ng&agrave;y c&oacute; thể gi&uacute;p giảm cholesterol cũng như chống lại bệnh tiểu đường. Nghi&ecirc;n cứu được thực hiện bởi TS. Ashley Wilkinson tại Đại học Queensland chỉ ra rằng, c&aacute;c th&agrave;nh phần trong xo&agrave;i hoạt động tương tự như một số loại thuốc trị tiểu đường v&agrave; cholesterol.</p>\r\n\r\n<h2>Gi&uacute;p cho hệ ti&ecirc;u h&oacute;a</h2>\r\n\r\n<p>T&aacute;c dụng của xo&agrave;i đối với hệ ti&ecirc;u h&oacute;a. Xo&agrave;i chứa một nh&oacute;m c&aacute;c enzyme ti&ecirc;u h&oacute;a được gọi l&agrave; amylase. Enzyme ti&ecirc;u h&oacute;a ph&aacute; vỡ c&aacute;c ph&acirc;n tử thực phẩm lớn để ch&uacute;ng c&oacute; thể dễ d&agrave;ng được hấp thụ. Amylase ph&acirc;n hủy carbs phức th&agrave;nh đường, chẳng hạn như glucose v&agrave; maltose. C&aacute;c enzyme n&agrave;y hoạt động mạnh hơn trong xo&agrave;i ch&iacute;n n&ecirc;n ch&uacute;ng ngọt hơn so với những quả chưa ch&iacute;n.</p>\r\n\r\n<p>Hơn nữa, v&igrave; xo&agrave;i chứa nhiều nước v&agrave; chất xơ, n&oacute; c&oacute; thể gi&uacute;p giải quyết c&aacute;c vấn đề ti&ecirc;u h&oacute;a như t&aacute;o b&oacute;n v&agrave; ti&ecirc;u chảy. Một nghi&ecirc;n cứu k&eacute;o d&agrave;i 4 tuần ở những người trưởng th&agrave;nh bị t&aacute;o b&oacute;n mạn t&iacute;nh cho thấy rằng ăn xo&agrave;i h&agrave;ng ng&agrave;y c&oacute; hiệu quả trong việc l&agrave;m giảm c&aacute;c triệu chứng của t&igrave;nh trạng n&agrave;y hơn l&agrave; một chất bổ sung c&oacute; chứa một lượng chất xơ h&ograve;a tan tương tự.</p>\r\n\r\n<h2>Giảm nguy cơ bị bệnh tim</h2>\r\n\r\n<p>Xo&agrave;i được coi l&agrave; tốt cho tim v&igrave; nồng độ polyphenol cao (chủ yếu l&agrave; mangiferin, quercetin, gallotannin v&agrave; axit gallic), c&aacute;c hợp chất hoạt t&iacute;nh sinh học l&agrave; chất chống oxy h&oacute;a, chống vi&ecirc;m v&agrave; chống nhiễm tr&ugrave;ng.</p>\r\n\r\n<p>Trong nghi&ecirc;n cứu mới của UC Davis, c&aacute;c nh&agrave; nghi&ecirc;n cứu đ&atilde; tuyển dụng 24 phụ nữ &nbsp;khỏe mạnh đ&atilde; m&atilde;n kinh. Họ ăn 2 cốc xo&agrave;i mỗi ng&agrave;y trong 2 tuần. Sau giai đoạn n&agrave;y, phụ nữ tiếp tục chế độ ăn b&igrave;nh thường nhưng hạn chế xo&agrave;i trong 13 ng&agrave;y.</p>\r\n\r\n<p>C&aacute;c nh&agrave; nghi&ecirc;n cứu đ&atilde; ghi lại nhịp tim v&agrave; huyết &aacute;p đồng thời họ đ&atilde; lấy mẫu m&aacute;u v&agrave; hơi thở.</p>\r\n\r\n<p>Trong thời gian ti&ecirc;u thụ xo&agrave;i 2 tuần, huyết &aacute;p trung b&igrave;nh của những người tham gia đ&atilde; giảm. Cụ thể, huyết &aacute;p t&acirc;m thu đ&atilde; giảm chỉ sau 2 giờ sau khi họ ăn xo&agrave;i mỗi ng&agrave;y. Ngo&agrave;i ra, 6 trong số 24 người tham gia thải ra m&ecirc;-tan cho thấy những thay đổi t&iacute;ch cực về sức khỏe đường ruột.</p>\r\n\r\n<p>Đ&acirc;y l&agrave; nghi&ecirc;n cứu đầu ti&ecirc;n cho thấy t&aacute;c dụng của xo&agrave;i tốt cho tim mạch. Trong tương lai, c&aacute;c nh&agrave; nghi&ecirc;n cứu c&oacute; kế hoạch tiến h&agrave;nh nhiều nghi&ecirc;n cứu hơn với c&aacute;c nh&oacute;m d&acirc;n số kh&aacute;c.</p>\r\n\r\n<h2>Chống hen suyễn</h2>\r\n\r\n<p>Trong xo&agrave;i c&oacute; chứa chất beta-carotene giảm nguy cơ ph&aacute;t triển bệnh hen suyễn</p>\r\n\r\n<h2>T&oacute;c v&agrave; da khỏe đẹp</h2>\r\n\r\n<p>Xo&agrave;i cũng rất tốt cho t&oacute;c của bạn v&igrave; ch&uacute;ng c&oacute; chứa vitamin A - một chất dinh dưỡng cần thiết cho việc sản xuất b&atilde; nhờn gi&uacute;p giữ ẩm cho t&oacute;c. Vitamin A cũng cần thiết cho sự tăng trưởng của tất cả c&aacute;c m&ocirc; cơ thể, bao gồm cả da v&agrave; t&oacute;c.</p>\r\n\r\n<p>Hấp thụ đủ vitamin C c&oacute; trong 165g xo&agrave;i mỗi ng&agrave;y l&agrave; cần thiết cho việc tạo ra v&agrave; duy tr&igrave; collagen, cung cấp cấu tr&uacute;c cho da v&agrave; t&oacute;c.</p>', NULL, 0, '800g', '2020-12-10 02:36:25', '2020-12-30 00:28:37'),
-(90, 'Táo NewZeland', 'tao-newzeland', 'upload/product/1607593350_Tao_Newzealand.png', 100, 69000, 60000, 26, 1, 1, 72, 61, NULL, 28, 27, '<h1 style=\"text-align:start\"><span style=\"font-size:20px\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><strong><span style=\"color:#35a647\"><span style=\"background-color:#ffffff\">Th&ocirc;ng Tin Sản Phẩm</span></span></strong></span></span></h1>\r\n\r\n<ul>\r\n	<li><strong>Xuất xứ: </strong></li>\r\n	<li><strong>T&aacute;o NewZeland</strong> được mệnh danh l&agrave; loại t&aacute;o ngon độc nhất v&ocirc; nhị của thế giới lo&agrave;i t&aacute;o,đem đi biếu,đi tặng đều hay</li>\r\n	<li><strong>Đặc điểm:</strong><strong>&nbsp;</strong>T&aacute;o Envy quả tr&ograve;n, m&agrave;u đỏ, vỏ mỏng b&oacute;ng, chắc thịt, ăn gi&ograve;n, ngọt đậm, rất ph&ugrave; hợp với khẩu vị người Việt Nam.</li>\r\n	<li><strong>Hương Vị :</strong>&nbsp;gi&ograve;n, ngọ</li>\r\n</ul>', '<h1 style=\"text-align:start\"><span style=\"font-size:20px\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><strong><span style=\"color:#35a647\"><span style=\"background-color:#ffffff\">C&ocirc;ng Dụng</span></span></strong></span></span></h1>\r\n\r\n<ul>\r\n	<li><strong>T&aacute;o chứa nhiều chất chống oxy h&oacute;a</strong> ngăn chặn tế b&agrave;o v&agrave; tổn thương m&ocirc; khỏi c&aacute;c gốc tự do trong cơ thể bằng c&aacute;ch ngăn chặn hoặc l&agrave;m giảm qu&aacute; tr&igrave;nh oxy h&oacute;a.&nbsp;Quả t&aacute;o gi&uacute;p giảm nguy cơ bệnh tim, tiểu đường v&agrave; ung thư.</li>\r\n	<li><strong>Vitamin v&agrave; c&aacute;c kho&aacute;ng chất </strong>trong t&aacute;o cung cấp 2.000 calo mỗi ng&agrave;y, một quả t&aacute;o Envy, trung b&igrave;nh cung cấp &nbsp;cho 8% gi&aacute; trị vitamin C, 2% Fe v&agrave; Vitamin A, 5% kali.</li>\r\n	<li><strong>Carbohydrate v&agrave; chất xơ tự nhi&ecirc;n</strong> c&oacute; trong t&aacute;o Envy l&agrave; pectin.Pectin c&oacute; nhiều trong t&aacute;o gi&uacute;p l&agrave;m giảm huyết &aacute;p v&agrave; ngăn ngừa ung thư ruột kết.&nbsp;</li>\r\n	<li><strong>Ngo&agrave;i ra</strong> t&aacute;o cũng chứa Phytochemical v&agrave; Flavonoids c&oacute; chức năng chống dị ứng, chống vi&ecirc;m, chống khối u v&agrave; c&aacute;c hiệu ứng chất chống oxy h&oacute;a tr&ecirc;n cơ thể v&agrave; bảo vệ chống lại qu&aacute; tr&igrave;nh l&atilde;o h&oacute;a.</li>\r\n</ul>', 0, 'kg', '2020-12-10 02:42:30', '2022-04-19 20:01:54'),
+(90, 'Táo NewZeland', 'tao-newzeland', 'upload/product/1607593350_Tao_Newzealand.png', 99, 69000, 60000, 26, 1, 1, 72, 61, NULL, 28, 27, '<h1 style=\"text-align:start\"><span style=\"font-size:20px\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><strong><span style=\"color:#35a647\"><span style=\"background-color:#ffffff\">Th&ocirc;ng Tin Sản Phẩm</span></span></strong></span></span></h1>\r\n\r\n<ul>\r\n	<li><strong>Xuất xứ: </strong></li>\r\n	<li><strong>T&aacute;o NewZeland</strong> được mệnh danh l&agrave; loại t&aacute;o ngon độc nhất v&ocirc; nhị của thế giới lo&agrave;i t&aacute;o,đem đi biếu,đi tặng đều hay</li>\r\n	<li><strong>Đặc điểm:</strong><strong>&nbsp;</strong>T&aacute;o Envy quả tr&ograve;n, m&agrave;u đỏ, vỏ mỏng b&oacute;ng, chắc thịt, ăn gi&ograve;n, ngọt đậm, rất ph&ugrave; hợp với khẩu vị người Việt Nam.</li>\r\n	<li><strong>Hương Vị :</strong>&nbsp;gi&ograve;n, ngọ</li>\r\n</ul>', '<h1 style=\"text-align:start\"><span style=\"font-size:20px\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><strong><span style=\"color:#35a647\"><span style=\"background-color:#ffffff\">C&ocirc;ng Dụng</span></span></strong></span></span></h1>\r\n\r\n<ul>\r\n	<li><strong>T&aacute;o chứa nhiều chất chống oxy h&oacute;a</strong> ngăn chặn tế b&agrave;o v&agrave; tổn thương m&ocirc; khỏi c&aacute;c gốc tự do trong cơ thể bằng c&aacute;ch ngăn chặn hoặc l&agrave;m giảm qu&aacute; tr&igrave;nh oxy h&oacute;a.&nbsp;Quả t&aacute;o gi&uacute;p giảm nguy cơ bệnh tim, tiểu đường v&agrave; ung thư.</li>\r\n	<li><strong>Vitamin v&agrave; c&aacute;c kho&aacute;ng chất </strong>trong t&aacute;o cung cấp 2.000 calo mỗi ng&agrave;y, một quả t&aacute;o Envy, trung b&igrave;nh cung cấp &nbsp;cho 8% gi&aacute; trị vitamin C, 2% Fe v&agrave; Vitamin A, 5% kali.</li>\r\n	<li><strong>Carbohydrate v&agrave; chất xơ tự nhi&ecirc;n</strong> c&oacute; trong t&aacute;o Envy l&agrave; pectin.Pectin c&oacute; nhiều trong t&aacute;o gi&uacute;p l&agrave;m giảm huyết &aacute;p v&agrave; ngăn ngừa ung thư ruột kết.&nbsp;</li>\r\n	<li><strong>Ngo&agrave;i ra</strong> t&aacute;o cũng chứa Phytochemical v&agrave; Flavonoids c&oacute; chức năng chống dị ứng, chống vi&ecirc;m, chống khối u v&agrave; c&aacute;c hiệu ứng chất chống oxy h&oacute;a tr&ecirc;n cơ thể v&agrave; bảo vệ chống lại qu&aacute; tr&igrave;nh l&atilde;o h&oacute;a.</li>\r\n</ul>', 0, 'kg', '2020-12-10 02:42:30', '2022-04-22 18:23:29'),
 (91, 'Cherry', 'cherry', 'upload/product/1607593471_cherry.jpg', 686, 500000, 300000, 27, 1, 1, 72, 61, NULL, 28, 27, '<p><strong>7&nbsp;<strong>t&aacute;c dụng</strong>&nbsp;của&nbsp;<strong>cherry</strong>&nbsp;khiến bạn muốn ăn thử ngay</strong></p>\r\n\r\n<ul>\r\n	<li><strong>Quả cherry</strong>&nbsp;chứa c&aacute;c chất chống oxy h&oacute;a. ...</li>\r\n	<li><strong>T&aacute;c dụng</strong>&nbsp;của&nbsp;<strong>cherry</strong>&nbsp;gi&uacute;p trị tiểu đường. ...</li>\r\n	<li><strong>T&aacute;c dụng</strong>&nbsp;của&nbsp;<strong>cherry</strong>&nbsp;gi&uacute;p bạn ngủ ngon.</li>\r\n	<li><strong>T&aacute;c dụng</strong>&nbsp;của&nbsp;<strong>cherry</strong>&nbsp;gi&uacute;p giảm đau khớp. ...</li>\r\n	<li><strong>C&ocirc;ng dụng</strong>&nbsp;của&nbsp;<strong>cherry</strong>&nbsp;gi&uacute;p giảm nguy cơ bệnh g&uacute;t. ...</li>\r\n	<li><strong>Quả cherry</strong>&nbsp;gi&uacute;p giảm lượng cholesterol. ...</li>\r\n	<li><strong>T&aacute;c dụng</strong>&nbsp;của&nbsp;<strong>cherry</strong>&nbsp;gi&uacute;p giảm đau sau khi tập luyện.</li>\r\n</ul>', NULL, 0, 'kg', '2020-12-10 02:44:31', '2022-04-18 00:42:51');
 
 -- --------------------------------------------------------
@@ -495,11 +485,11 @@ CREATE TABLE `settings` (
   `tax` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `introduce` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `introduce` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `website` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `privacy_policy` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `privacy_policy` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
@@ -7415,7 +7405,7 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `role_id` int(11) NOT NULL,
   `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_active` tinyint(4) NOT NULL DEFAULT 0
+  `is_active` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
@@ -7439,9 +7429,9 @@ CREATE TABLE `vendors` (
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `website` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `position` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `is_active` int(10) UNSIGNED NOT NULL DEFAULT 1,
+  `address` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `position` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `is_active` int(10) UNSIGNED NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
@@ -7587,7 +7577,7 @@ ALTER TABLE `articles`
 -- AUTO_INCREMENT cho bảng `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT cho bảng `brands`
@@ -7599,13 +7589,13 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT cho bảng `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT cho bảng `coupons`
@@ -7629,13 +7619,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT cho bảng `order_status`
@@ -7647,7 +7637,7 @@ ALTER TABLE `order_status`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`
@@ -7665,13 +7655,13 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `vendors`
 --
 ALTER TABLE `vendors`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
