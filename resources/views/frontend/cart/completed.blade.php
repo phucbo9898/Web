@@ -6,8 +6,7 @@
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
                     <p class="breadcrumbs"><span class="mr-2"><a href="/">Trang chủ</a></span>
-                        <span>Giỏ hàng</span></p>
-                    <h1 class="mb-0 bread">My Cart</h1>
+                        <span>/ Giỏ hàng</span></p>
                 </div>
             </div>
         </div>
@@ -23,10 +22,10 @@
                 margin: 15px auto;
                 width: 300px;
                 font-size: 14px;
-                color: #82ae46;
+                color: #0000FF;
                 font-weight: 700;
                 text-transform: uppercase;
-                border: 2px solid #82ae46;
+                border: 2px solid #0000FF;
                 border-radius: 5px;
             }
         </style><br>

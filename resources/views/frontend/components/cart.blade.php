@@ -1,7 +1,7 @@
 @if(count($cart) > 0)
     <section class="ftco-section ftco-cart">
         <div class="container">
-            <h2 style="text-align: center; color: #82ae46">THÔNG TIN GIỎ HÀNG</h2>
+            <h2 style="text-align: center; color: #0000FF">THÔNG TIN GIỎ HÀNG</h2>
             <br>
             <div class="row">
                 <div class="col-md-12">
@@ -141,10 +141,10 @@
             margin: 15px auto;
             width: 300px;
             font-size: 14px;
-            color: #82ae46;
+            color: #0000FF;
             font-weight: 700;
             text-transform: uppercase;
-            border: 2px solid #82ae46;
+            border: 2px solid #0000FF;
             border-radius: 5px;
         }
     </style><br>

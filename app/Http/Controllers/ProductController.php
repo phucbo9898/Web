@@ -30,14 +30,14 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        //$brands = Brand::all();
+        $brands = Brand::all();
         //$vendors = Vendor::all();
         //$max_position = Product::max('position');
 
 
         return view('backend.product.create' ,[
             'categories' => $categories,
-            //'brands' => $brands,
+            'brands' => $brands
             //'vendors' => $vendors,
             //'max_position' => $max_position
         ]);
@@ -53,10 +53,10 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            //'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10000'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10000'
         ],[
-            'name.required' => 'Bạn cần phải nhập vào tiêu đề',
-           // 'image.image' => 'File ảnh phải có dạng jpeg,png,jpg,gif,svg',
+            'name.required' => 'Bạn cần phải nhập vào tên sản phẩm',
+            'image.image' => 'File ảnh phải có dạng jpeg,png,jpg,gif,svg',
         ]);
 
         $product = new Product();
@@ -181,7 +181,7 @@ class ProductController extends Controller
         $product->stock = $request->input('stock'); // số lượng
         $product->price = $request->input('price');
         $product->sale = $request->input('sale');
-        $product->category_id = $request->input('category_id');
+//        $product->category_id = $request->input('category_id');
         //$product->parent_id = $request->input('parent_id');
 //        $product->brand_id = $request->input('brand_id');
 //        $product->vendor_id = $request->input('vendor_id');
@@ -225,8 +225,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $isDelete = Product::destroy($id); // true | false
-
+        $product = Product::destroy($id); // true | false
         return redirect()->back();
     }
 }

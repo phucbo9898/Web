@@ -49,7 +49,12 @@
                     <h2 class="ftco-heading-2">Bạn có câu hỏi nào không ?</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">{{ $setting->address }}</span></li>
+                            <li>
+                                <a href="https://goo.gl/maps/nrmdC85c9o8vx4LW7">
+                                    <span class="icon icon-map-marker"></span>
+                                    <span class="text">{{ $setting->address }}</span>
+                                </a>
+                            </li>
                             <li><a href="#"><span class="icon icon-phone"></span><span class="text">{{ $setting->phone }}</span></a></li>
                             <li><a href="#"><span class="icon icon-envelope"></span><span class="text">{{ $setting->email }}</span></a></li>
                         </ul>
@@ -61,7 +66,7 @@
             <div class="col-md-12 text-center">
 
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Kise</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
             </div>

@@ -26,7 +26,7 @@
                             <tr>
                                 <th>TT</th>
                                 <th>Hình ảnh</th>
-                                <th width="20%">Tên sản phẩm</th>
+                                <th>Tên sản phẩm</th>
                                 <th>Danh mục</th>
                                 <th>Người tạo</th>
                                 <th>Giá Gốc</th>
@@ -48,17 +48,24 @@
                                         </td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ @$item->category->name}}</td>
-                                        <td>Lịch Trần</td>
+                                        <td>{{ Auth::user()->name}}</td>
                                         <td>{{ $item->price }}</td>
                                         <td>{{ $item->sale }}</td>
                                         <td>{{ $item->position }}</td>
                                         <td>{{ $item->is_hot == 1 ? 'Có' : 'Không' }}</td>
                                         <td>{{ $item->is_active == 1 ? 'Hiển thị' : 'Ẩn' }}</td>
                                         <td class="text-center">
+                                            {{------Sửa------}}
                                             <a href="{{ route('admin.product.edit', ['id' => $item->id ]) }}" class="btn btn-flat bg-purple">
                                                 <i class="fa fa-pencil-square"></i>
                                             </a>
-                                            <button data-id="{{ $item->id }}" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i></button>
+                                            {{-------------------------------------------------------------------------------------------------}}
+                                            {{----------------Xóa-------------}}
+                                            <form action="{{ route('admin.product.destroy', ['id'=> $item->id])}}" style="display: inline-block;" method="POST">
+                                                @csrf   {{-----------------Chống bảo mật---------------}}
+                                                @method('DELETE')
+                                                <button class="btn btn-danger btn-delete"><i class="fa fa-trash"></i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -75,47 +82,3 @@
 
 @endsection
 
-@section('my_js')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // Thiết lập csrf => chổng giả mạo
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-                }
-            })
-
-            $('.btn-delete').on('click',function () {
-
-                let id = $(this).data('id');  // = 90
-
-                let result = confirm("Bạn có chắc chắn muốn xóa ?");
-
-                if (result) { // neu nhấn == ok , sẽ send request ajax
-
-                    $.ajax({
-                        url: '/admin/product/'+id, // http://webthucpham.local:8888/user/8
-                        type: 'DELETE', // phương truyền tải dữ liệu
-                        data: {
-
-                        },
-                        dataType: "json", // kiểu dữ liệu muốn nhận về
-                        success: function (res) {
-                            //  PHP : $user->name
-                            //  JS: res.name
-
-                            if (res.success != 'undefined' && res.success == 1) { // xóa thành công
-                                $('.item-'+id).remove();
-                            }
-                        },
-                        error: function (e) { // lỗi nếu có
-                            console.log(e);
-                        }
-                    });
-                }
-
-            });
-
-        });
-    </script>
-@endsection

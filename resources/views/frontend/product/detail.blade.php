@@ -54,7 +54,7 @@
                         <div class="col-md-12" style="display: flex">
                             <h5>Tình trạng:</h5>
                             @if($product->stock > 0)
-                                <h5 style="color: #82ae46; margin-top: 1px">&emsp;CÒN HÀNG</h5>
+                                <h5 style="color: #0000FF; margin-top: 1px">&emsp;CÒN HÀNG</h5>
                             @else
                                 <h5 style="color: red; margin-top: 1px">&emsp;HẾT HÀNG</h5>
                             @endif

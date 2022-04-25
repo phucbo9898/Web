@@ -71,7 +71,10 @@
                 </div>
 
                 <div class="col-md-6 d-flex">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.3929804818517!2d105.88758531476374!3d21.056960985983103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a99b6dd51879%3A0x8e5c70132bed14bb!2zNDIgTmfDtCBHaWEgVOG7sSwgxJDhu6ljIEdpYW5nLCBMb25nIEJpw6puLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1599190711168!5m2!1svi!2s" width="600" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.642978790681!2d105.93552011476282!3d21.006943786010165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a8ce59576c95%3A0x1dbfad46e667f07!2zTmcuIDE2MSBUcsOidSBRdeG7sywgdHQuIFRyw6J1IFF14buzLCBHaWEgTMOibSwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1650419100768!5m2!1svi!2s" 
+                    width="600" height="450" style="border:0;" allowfullscreen="" 
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
                 </div>
             </div>
         </div>

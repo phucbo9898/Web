@@ -172,19 +172,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $isDelete = Category::destroy($id);
-
-        if ($isDelete) { // xóa thành công
-            $statusCode = 200;
-            $isSuccess = true;
-        } else {
-            $statusCode = 400;
-            $isSuccess = false;
-        }
-
-        // Trả về dữ liệu json và trạng thái kèm theo thành công là 200
-        return response()->json([
-            'isSuccess' => $isSuccess
-        ], $statusCode);
+        $category = Category::destroy($id);
+        return redirect()->route('admin.category.index');
     }
 }

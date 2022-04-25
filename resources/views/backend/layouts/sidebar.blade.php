@@ -2,39 +2,28 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
-        <div class="user-panel">
+        <div class="user-panel" style=" width: 230px;
+                                        height: 35px;
+                                        margin: 0px 0 -25px -7px;">
             <div class="pull-left image">
-{{--                <img src="/backend/dist/img/volibear-thunder-lord-1.jpg" class="img-circle" alt="User Image">--}}
-                <img src="{{ asset(Auth::user()->avatar) }}" class="img-circle" alt="User Image">
+            <!-- <img src="{{ asset(Auth::user()->avatar) }}" class="img-circle" alt="User Image"> -->
             </div>
-            <div class="pull-left info">
+            <div class="pull-left info" style="padding: 0px !important;
+                                                left: 0px !important;
+                                                margin: 2px 0px 0 28px;}">
                 @if(Auth::check())
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="hidden-xs">
-                                {{ Auth::user()->name }}
-                            </span>
-                        </a>
-                    </li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="hidden-xs" style="font-size:20px;">
+                            Admin - {{ Auth::user()->name }}
+                        </span>
+                    </a>
                 @endif
-                {{--                <p>Natsuvxz</p>--}}
-                {{--                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>--}}
             </div>
         </div>
-        <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search...">
-                <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-        </form>
-        <!-- /.search form -->
+        <br> <hr>
+
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
                 <a href="{{route('admin.dashboard.index')}}">
                     <i class="fa fa-dashboard"></i><span>Bảng điều khiển</span>
@@ -100,6 +89,13 @@
                 </a>
             </li>
 
+            <li>
+                <a href="{{ route('admin.logout')}}">
+                    <i class="fa fa-optin-monster">
+                        <span>Đăng xuất</span>
+                    </i>
+                </a>
+            </li>
 
         </ul>
     </section>

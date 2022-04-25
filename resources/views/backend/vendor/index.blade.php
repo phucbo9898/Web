@@ -57,7 +57,13 @@
                                         <a href="{{ route('admin.vendor.edit', ['id' => $item->id ]) }}" class="btn btn-flat bg-purple">
                                             <i class="fa fa-pencil-square"></i>
                                         </a>
-                                        <button onclick="deleteItem('vendor',{{$item->id}})" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                        {{-------------------------------------------------------------------------------------------------}}
+                                        {{----------------Xóa-------------}}
+                                        <form action="{{ route('admin.vendor.destroy', ['id'=> $item->id])}}" style="display: inline-block;" method="POST">
+                                            @csrf   {{-----------------Chống bảo mật---------------}}
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-delete"><i class="fa fa-trash"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -74,18 +80,4 @@
 
 @endsection
 
-@section('script')
-    <script>
-        $(function () {
-            $('#example1').DataTable();
-            $('#example2').DataTable({
-                'paging'      : true,
-                'lengthChange': false,
-                'searching'   : false,
-                'ordering'    : true,
-                'info'        : true,
-                'autoWidth'   : false
-            })
-        })
-    </script>
-@endsection
+

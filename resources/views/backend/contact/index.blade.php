@@ -16,10 +16,6 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                {{--                    <div class="box-header">--}}
-                {{--                        <h3 class="box-title">Data Table With Full Features</h3>--}}
-                {{--                    </div>--}}
-                <!-- /.box-header -->
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
@@ -45,7 +41,11 @@
                                     <td>{{ $item->content }}</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td class="text-center">
-                                        <button onclick="deleteItem('contact',{{$item->id}})" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                        <form action="{{ route('admin.contact.destroy', ['id'=> $item->id])}}" style="display: inline-block;" method="POST">
+                                            @csrf   {{-----------------Chống bảo mật---------------}}
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-delete"><i class="fa fa-trash"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -62,18 +62,4 @@
 
 @endsection
 
-@section('script')
-    <script>
-        $(function () {
-            $('#example1').DataTable();
-            $('#example2').DataTable({
-                'paging'      : true,
-                'lengthChange': false,
-                'searching'   : false,
-                'ordering'    : true,
-                'info'        : true,
-                'autoWidth'   : false
-            })
-        })
-    </script>
-@endsection
+

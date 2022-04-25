@@ -28,7 +28,7 @@ class VendorController extends Controller
     {
         $max_position = Vendor::max('position');
 
-        return view('backend_old.vendor.create',[
+        return view('backend.vendor.create',[
             'max_position' => $max_position
         ]);
     }
@@ -169,19 +169,8 @@ class VendorController extends Controller
     {
         // gọi tới hàm destroy của laravel để xóa 1 object
         // DELETE FROM ten_bang WHERE id = 33 -> execute command
-        $isDelete = Vendor::destroy($id);
+        $vendor = Vendor::destroy($id);
 
-        if ($isDelete) { // xóa thành công
-            $statusCode = 200;
-            $isSuccess = true;
-        } else {
-            $statusCode = 400;
-            $isSuccess = false;
-        }
-
-        // Trả về dữ liệu json và trạng thái kèm theo thành công là 200
-        return response()->json([
-            'isSuccess' => $isSuccess
-        ], $statusCode);
+        return redirect()->route('admin.vendor.index');
     }
 }
