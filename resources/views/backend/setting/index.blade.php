@@ -86,8 +86,6 @@
                     </form>
                 </div>
                 <!-- /.box -->
-
-
             </div>
             <!--/.col (right) -->
         </div>
@@ -97,13 +95,11 @@
 
 @section('my_js')
     <script type="text/javascript">
-
         $(function () {
             var _ckeditor = CKEDITOR.replace('editor1');
             _ckeditor.config.height = 600; // thiết lập chiều cao
             var _ckeditor = CKEDITOR.replace('editor2');
             _ckeditor.config.height = 600; // thiết lập chiều cao
         })
-
     </script>
 @endsection

@@ -4,15 +4,17 @@
             <div class="col-lg-12 d-block">
                 <div class="row d-flex">
                     <div class="col-md pr-4 d-flex topper align-items-center">
-                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span
-                                class="icon-phone2"></span></div>
-                        <span class="text">{{ $setting->phone }}</span>
-                    </div>
-                    <div class="col-md pr-4 d-flex topper align-items-center">
-                        <span class="text"></span>
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+                        <span class="text">{{ $setting->phone }} | <span class="icon-paper-plane"> {{ $setting->email }}</span></span>
                     </div>
                     <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-                        <span class="text">{{ $setting->email }}</span>
+                        
+                        <a href="{{ route('admin.dashboard.index')}}">
+                            
+                            <p style="color: #ffffff;margin: -9px 0px -15px 315px;">
+                                Trang quản trị
+                            </p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -26,7 +28,7 @@
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span>
         </button>
-
+        
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto" style="margin-left: 0px !important;">
                 <li class="nav-item active"><a href="{{ route('shop.index') }}" class="nav-link" style="font-weight: 600;font-size: 14px">Trang chủ</a></li>
@@ -57,6 +59,7 @@
             </ul>
             <form action="{{ route('shop.search') }}" method="GET" class="search-form-cat">
                 <input value="{{ isset($keyword) ? $keyword : '' }}" style="width: 150px;" type="text" class="form-control search-form" name="tu-khoa" placeholder="Tìm kiếm" />
+
             </form>
         </div>
     </div>

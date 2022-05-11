@@ -12,7 +12,6 @@
             <!-- left column -->
             <div class="col-md-12">
                 <!-- general form elements -->
-
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Thông tin chi tiết tin tức</h3>
@@ -97,7 +96,7 @@
                             <div class="form-group">
                                 <label>Tóm tắt</label>
                                 <textarea id="editor2" name="summary" class="form-control"
-                                          rows="10">{{ $product->summary }}</textarea>
+                                          rows="10">{{ $data->summary }}</textarea>
                                 @if ($errors->has('summary'))
                                     <label class="text-red" style="font-weight: 600; font-size: 15px; margin-top: 5px">&ensp;<i class="fa fa-info"></i> {{ $errors->first('summary') }}</label>
                                 @endif

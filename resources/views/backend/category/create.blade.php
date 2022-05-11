@@ -13,7 +13,6 @@
             <!-- left column -->
             <div class="col-md-12">
                 <!-- general form elements -->
-
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Thông tin danh mục</h3>
@@ -84,8 +83,6 @@
                     </form>
                 </div>
                 <!-- /.box -->
-
-
             </div>
             <!--/.col (right) -->
         </div>

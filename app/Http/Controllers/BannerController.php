@@ -197,7 +197,7 @@ class BannerController extends Controller
         // Lưu thông tin thay đổi
         $banner->save();
 
-        return redirect()->route('banner.index');
+        return redirect()->route('admin.banner.index');
     }
 
     /**

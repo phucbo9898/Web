@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->paginate(15); // select * from user order by id desc limit 20 offset 0
+        $users = User::latest()->paginate(10); // select * from user order by id desc limit 20 offset 0
         // $data = User::all(); // select * from user
 
         return view('backend.user.index', [

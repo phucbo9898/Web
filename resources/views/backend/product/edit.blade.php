@@ -16,13 +16,10 @@
             <!-- left column -->
             <div class="col-md-12">
                 <!-- general form elements -->
-
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Thông tin sản phẩm</h3>
                     </div>
-
-
                     <div class="row">
                         <div class="col-md-6">
                             @if ($errors->any())
@@ -39,6 +36,7 @@
                         </div>
                     </div>
                     <!-- /.box-header -->
+
                     <!-- form start -->
                     <form role="form" action="{{route('admin.product.update', ['id' => $product->id ])}}" method="post"
                           enctype="multipart/form-data">
@@ -95,10 +93,9 @@
                                     </div>
                                 </div>
                                 <!-- /.col-lg-6 -->
-                            </div>
-                            <br>
+                            </div><br>
                             <div class="form-group">
-                                <label>Danh mục</label>
+                                <label>Danh mục sản phẩm</label>
                                 <select class="form-control w-50" name="parent_id">
                                     <option value="0">-- chọn Danh Mục --</option>
                                     @foreach($categories as $category)
@@ -109,40 +106,6 @@
                                     @endforeach
                                 </select>
                             </div>
-
-                            {{--<div class="form-group">
-                                <label>Danh mục sản phẩm</label>
-                                <select class="form-control w-50" name="category_id">
-                                    <option value="0">-- chọn Danh Mục --</option>
-                                    @foreach($categories as $category)
-                                        @if($category->type == 1)
-                                        <option
-                                            {{ ($product->category_id == $category->id ? 'selected':'') }} value="{{ $category -> id }}">{{ $category -> name }}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
-                            </div>--}}
-
-                            {{--<div class="form-group">
-                                <label>Thương hiệu</label>
-                                <select class="form-control w-50" name="brand_id">
-                                    <option value="0">-- chọn Thương Hiệu--</option>
-                                    @foreach($brands as $brand)
-                                        <option
-                                            {{ ($product->brand_id == $brand->id ? 'selected':'') }} value="{{ $brand->id }}">{{ $brand->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Nhà cung cấp</label>
-                                <select class="form-control w-50" name="vendor_id">
-                                    <option value="0">-- chọn NCC --</option>
-                                    @foreach($vendors as $vendor)
-                                        <option
-                                            {{ ($product->vendor_id == $vendor->id ? 'selected':'') }} value="{{ $vendor->id }}">{{ $vendor->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>--}}
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Vị trí</label>
@@ -197,33 +160,11 @@
 
 @section('my_js')
     <script type="text/javascript">
-
         $(function () {
             var _ckeditor = CKEDITOR.replace('summary');
             _ckeditor.config.height = 200; // thiết lập chiều cao
             var _ckeditor = CKEDITOR.replace('description');
             _ckeditor.config.height = 600; // thiết lập chiều cao
         })
-
-
-
-
-        /*$(function () {
-            var _ckeditor = CKEDITOR.replace('editor1', {
-                filebrowserBrowseUrl: '{{ asset('/backend/plugins/ckfinder/ckfinder.html') }}',
-                filebrowserImageBrowseUrl: '{{ asset('/backend/plugins/ckfinder/ckfinder.html?type=Images') }}',
-                filebrowserFlashBrowseUrl: '{{ asset('/backend/plugins/ckfinder/ckfinder.html?type=Flash') }}',
-                filebrowserUploadUrl: '{{ asset('/backend/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
-                filebrowserImageUploadUrl: '{{ asset('/backend/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
-                filebrowserFlashUploadUrl: '{{ asset('/backend/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
-            });
-            _ckeditor.config.height = 200;
-        })
-
-        $(function () {
-            var _ckeditor = CKEDITOR.replace('editor2');
-            _ckeditor.config.height = 200;
-        })*/
-
     </script>
 @endsection

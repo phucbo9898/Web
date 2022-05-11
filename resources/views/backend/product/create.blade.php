@@ -13,7 +13,6 @@
             <!-- left column -->
             <div class="col-md-12">
                 <!-- general form elements -->
-
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Thông tin sản phẩm</h3>
@@ -35,6 +34,7 @@
                         </div>
                     </div>
                     <!-- /.box-header -->
+
                     <!-- form start -->
                     <form role="form" action="{{route('admin.product.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -99,8 +99,6 @@
                                 </div>
                             </div>
 
-
-
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -140,8 +138,6 @@
                                 <textarea id="description" name="description" class="form-control" rows="3"
                                           placeholder="Enter ..."></textarea>
                             </div>
-
-
                         </div>
                         <!-- /.box-body -->
 
@@ -152,7 +148,6 @@
                 </div>
                 <!-- /.box -->
 
-
             </div>
             <!--/.col (right) -->
         </div>
@@ -162,33 +157,11 @@
 
 @section('my_js')
     <script type="text/javascript">
-
         $(function () {
             var _ckeditor = CKEDITOR.replace('summary');
             _ckeditor.config.height = 200; // thiết lập chiều cao
             var _ckeditor = CKEDITOR.replace('description');
             _ckeditor.config.height = 600; // thiết lập chiều cao
         })
-
-
-
-
-        /*$(function () {
-            var _ckeditor = CKEDITOR.replace('editor1', {
-                filebrowserBrowseUrl: '{{ asset('/backend/plugins/ckfinder/ckfinder.html') }}',
-                filebrowserImageBrowseUrl: '{{ asset('/backend/plugins/ckfinder/ckfinder.html?type=Images') }}',
-                filebrowserFlashBrowseUrl: '{{ asset('/backend/plugins/ckfinder/ckfinder.html?type=Flash') }}',
-                filebrowserUploadUrl: '{{ asset('/backend/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
-                filebrowserImageUploadUrl: '{{ asset('/backend/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
-                filebrowserFlashUploadUrl: '{{ asset('/backend/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
-            });
-            _ckeditor.config.height = 200;
-        })
-
-        $(function () {
-            var _ckeditor = CKEDITOR.replace('editor2');
-            _ckeditor.config.height = 200;
-        })*/
-
     </script>
 @endsection

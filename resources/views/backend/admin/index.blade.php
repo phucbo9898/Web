@@ -39,36 +39,26 @@
             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 
                 <form role="form" action="{{route('admin.postLogin')}}" method="post">
-                    {{--                    <form class="login100-form validate-form">--}}
                     @csrf
-                    <span class="login100-form-title p-b-49">
-						Login
-					</span>
+                    <span class="login100-form-title p-b-49">Login</span>
                     <div class="wrap-input100 m-b-23" {{--data-validate="Username is reauired"--}}>
                         <span class="label-input100">Email</span>
                         <input class="input100" type="text" name="email" placeholder="Type your email">
                         <span class="focus-input100" data-symbol="&#xf206;"></span>
                     </div>
-{{--                    @if ($errors->has('email'))--}}
-{{--                        <span class="invalid-feedback" role="alert"--}}
-{{--                              style="color:red;">{{ $errors->first('email') }}</span>--}}
-{{--                    @endif--}}
                     @if ($errors->has('email'))
                         <span style="color: #932ab6; font-weight: 600"><i class="fa fa-info"></i> {{ $errors->first('email') }}</span>
                     @endif
+
                     <div class="wrap-input100 validate-input" {{--data-validate="Password is required"--}}>
                         <span class="label-input100">Password</span>
                         <input class="input100" type="password" name="password" placeholder="Type your password">
                         <span class="focus-input100" data-symbol="&#xf190;"></span>
-{{--                        @if ($errors->has('password'))--}}
-{{--                            <span class="invalid-feedback" role="alert"--}}
-{{--                                  style="color:red;">{{ $errors->first('password') }}</span>--}}
-{{--                        @endif--}}
-                    </div>
-                    <br>
+                    </div><br>
                     @if ($errors->has('password'))
                         <span style="color: #932ab6; font-weight: 600"><i class="fa fa-info"></i> {{ $errors->first('password') }}</span>
                     @endif
+
                     @if(session('msg'))
                         <div class="form-group has-feedback"><span href="#" style="color: #932ab6; font-weight: 600"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{ session('msg') }}</span>
                         </div>
@@ -79,9 +69,7 @@
                         </label>
                     </div>
                     <div class="text-right p-t-8 p-b-31">
-                        <a href="#">
-                            Forgot password?
-                        </a>
+                        <a href="#">Forgot password?</a>
                     </div>
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
@@ -91,13 +79,10 @@
                             </button>
                         </div>
                     </div>
-                    {{--                </form>--}}
                 </form>
             </div>
         </div>
     </div>
-    {{--    </form>--}}
-
 
     <div id="dropDownSelect1"></div>
 

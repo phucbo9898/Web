@@ -3,13 +3,8 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Danh sách sản phẩm <a href="{{route('admin.product.create')}}" class="btn bg-purple"><i class="fa fa-plus"></i> Thêm sản phẩm</a>
+            Danh sách sản phẩm <a href="{{route('admin.product.create')}}" class="btn bg-purple" style="margin-left: 10px;"><i class="fa fa-plus"></i> Thêm sản phẩm</a>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-            <li><a href="#">Bảng</a></li>
-            <li class="active">Products</li>
-        </ol>
     </section>
 
     <section class="content">
@@ -59,7 +54,7 @@
                                             <a href="{{ route('admin.product.edit', ['id' => $item->id ]) }}" class="btn btn-flat bg-purple">
                                                 <i class="fa fa-pencil-square"></i>
                                             </a>
-                                            {{-------------------------------------------------------------------------------------------------}}
+                                            
                                             {{----------------Xóa-------------}}
                                             <form action="{{ route('admin.product.destroy', ['id'=> $item->id])}}" style="display: inline-block;" method="POST">
                                                 @csrf   {{-----------------Chống bảo mật---------------}}
@@ -72,6 +67,9 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="box-title clearfix">
+                        {{ $data->links()}}
+                    </div>
                     <!-- /.box-body -->
                 </div>
             </div>
@@ -79,6 +77,5 @@
         </div>
         <!-- /.row -->
     </section>
-
 @endsection
 

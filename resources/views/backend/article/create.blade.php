@@ -12,8 +12,6 @@
             <!-- left column -->
             <div class="col-md-12">
                 <!-- general form elements -->
-
-
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Thông tin chi tiết tin tức</h3>
@@ -34,13 +32,12 @@
                            @endif
                        </div>
                    </div>
-
                     <!-- /.box-header -->
+
                     <!-- form start -->
                     <form role="form" action="{{route('admin.article.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="box-body">
-
                             <div class="form-group">
                                 <label for="exampleInputSupplier">Tiêu đề tin tức</label>
                                 <input type="text" class="form-control" id="title" name="title" placeholder="Tiêu đề tin tức">
@@ -68,7 +65,6 @@
                             </div>
 
                             <div class="row">
-
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Vị trí</label>
@@ -116,8 +112,6 @@
                     </form>
                 </div>
                 <!-- /.box -->
-
-
             </div>
             <!--/.col (right) -->
         </div>
@@ -127,13 +121,11 @@
 
 @section('my_js')
     <script type="text/javascript">
-
         $(function () {
             var _ckeditor = CKEDITOR.replace('summary');
             _ckeditor.config.height = 200; // thiết lập chiều cao
             var _ckeditor = CKEDITOR.replace('description');
             _ckeditor.config.height = 600; // thiết lập chiều cao
         })
-
     </script>
 @endsection

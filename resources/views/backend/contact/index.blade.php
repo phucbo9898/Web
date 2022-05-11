@@ -5,11 +5,6 @@
         <h1>
             Thông tin liên hệ
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Tables</a></li>
-            <li class="active">Contacts</li>
-        </ol>
     </section>
 
     <section class="content">
@@ -51,7 +46,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                    </div>
+                    </div>    
                     <!-- /.box-body -->
                 </div>
             </div>
@@ -59,7 +54,6 @@
         </div>
         <!-- /.row -->
     </section>
-
 @endsection
 
 

@@ -39,10 +39,6 @@
                                     <td class="price">{{ number_format($item->price ,0,",",".") }} đ</td>
 
                                     <td class="quantity">
-{{--                                        <div class="input-group mb-3">--}}
-{{--                                            <input name="qty" class="quantity form-control input-number d-block item-qty" value="{{ $item->qty }}" >--}}
-{{--                                        </div>--}}
-{{--                                        <a data-id="{{ $item->rowId }}" href="javascript:void(0)" class="update-qty">Cập nhật</a>--}}
                                         <form action="{{ route('shop.cart.update-to-cart', $item->rowId) }}" method="post">
                                             @csrf
                                             <input name="updateToCart" type="number" class="quantity form-control input-number d-block item-qty" value="{{ $item->qty }}" min="1">
@@ -84,52 +80,6 @@
         </div>
     </section>
 
-{{--    @section('my_javascript')--}}
-{{--        <script type="text/javascript">--}}
-{{--            $(function () {--}}
-{{--                // // xóa sản phẩm khỏi giỏ hàng--}}
-{{--                // $(document).on("click", '.remove-to-cart', function () {--}}
-{{--                //     var result = confirm("Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng ?");--}}
-{{--                //--}}
-{{--                //     if (result == true) {--}}
-{{--                //         var rowId = $(this).attr('data-id'); // 9a34a635a736b8ed53f234e3b7ad738e--}}
-{{--                //         $.ajax({--}}
-{{--                //             url: '/gio-hang/xoa-sp-gio-hang/' + id,--}}
-{{--                //             type: 'get',--}}
-{{--                //             data: {--}}
-{{--                //                 id: id--}}
-{{--                //             }, // dữ liệu truyền sang nếu có--}}
-{{--                //             dataType: "HTML", // kiểu dữ liệu trả về--}}
-{{--                //             success: function (response) {--}}
-{{--                //                 $('#my-cart').html(response);--}}
-{{--                //             }--}}
-{{--                //         });--}}
-{{--                //     }--}}
-{{--                // });--}}
-
-{{--                // cập nhật số lượng của từng sản phẩm trong giỏ hàng--}}
-{{--                $(".gio-hang").change(function (e) {--}}
-{{--                    e.preventDefault();--}}
-
-{{--                    var ele = $(this);--}}
-
-{{--                    $.ajax({--}}
-{{--                        url: '{{ route('shop.cart.update-to-cart') }}',--}}
-{{--                        method: "get",--}}
-{{--                        data: {--}}
-{{--                            _token: '{{ csrf_token() }}',--}}
-{{--                            rowId: ele.parents("tr").attr("data-id"),--}}
-{{--                            quantity: ele.parents("tr").find(".quantity").val()--}}
-{{--                        },--}}
-{{--                        success: function (response) {--}}
-{{--                            window.location.reload();--}}
-{{--                        }--}}
-{{--                    });--}}
-{{--                });--}}
-{{--            })--}}
-{{--        </script>--}}
-{{--    @endsection--}}
-
 @else
     <style>
         .buyother {
@@ -148,6 +98,10 @@
             border-radius: 5px;
         }
     </style><br>
-    <h3 class="text-center"><i class="fa fa-opencart"></i>Bạn chưa có sản phẩm nào trong giỏ hàng</h3>
-    <a href="{{ route('shop.index') }}" class="buyother"><i class="fa fa-chevron-left"></i> Về trang chủ</a>
+    <h3 class="text-center"><i class="fa fa-opencart"></i>
+        Bạn chưa có sản phẩm nào trong giỏ hàng
+    </h3>
+    <a href="{{ route('shop.index') }}" class="buyother"><i class="fa fa-chevron-left"></i> 
+        Về trang chủ
+    </a>
 @endif

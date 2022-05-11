@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/img/favicon.png')}}"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/favicon-16x16.png')}}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">

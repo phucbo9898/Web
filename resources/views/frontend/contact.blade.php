@@ -107,10 +107,6 @@
 
             toastr["success"]("Bạn đã gửi tin nhắn thành công.")
         });
-
-{{--        // $('#btnSend').click(function (){--}}
-{{--        //     $('.contact-form').html('<h3>Cảm ơn bạn, chúng tôi sẽ liên lạc lại cho bạn sớm nhất có thể</h3>')--}}
-{{--        // });--}}
     </script>
 
 @endsection

@@ -12,7 +12,6 @@
             <!-- left column -->
             <div class="col-md-12">
                 <!-- general form elements -->
-
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Thông tin thương hiệu</h3>
@@ -22,7 +21,6 @@
                     <form role="form" action="{{route('admin.brand.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="box-body">
-
                             <div class="form-group">
                                 <label for="exampleInputSupplier">Tên nhà thương hiệu</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên thương hiệu">
@@ -45,7 +43,6 @@
                             </div>
 
                             <div class="row">
-
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Vị trí</label>
@@ -71,8 +68,6 @@
                     </form>
                 </div>
                 <!-- /.box -->
-
-
             </div>
             <!--/.col (right) -->
         </div>

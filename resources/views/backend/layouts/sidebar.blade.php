@@ -24,79 +24,87 @@
 
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="treeview">
+            <li>
                 <a href="{{route('admin.dashboard.index')}}">
-                    <i class="fa fa-dashboard"></i><span>Bảng điều khiển</span>
-                </a>
-            </li>
-
-            <li class="">
-                <a href="{{ route('admin.category.index') }}">
-                    <i class="fa fa-folder-open-o"></i><span>Quản Lý Danh Mục</span>
-                </a>
-            </li>
-
-            <li class="">
-                <a href="{{ route('admin.banner.index') }}">
-                    <i class="fa fa-photo"></i><span>Quản Lý Banner</span>
-                </a>
-            </li>
-
-            <li class="">
-                <a href="{{ route('admin.product.index') }}">
-                    <i class="fa fa-database"></i><span>Quản Lý Sản phẩm</span>
-                </a>
-            </li>
-
-            <li class="">
-                <a href="{{ route('admin.vendor.index') }}">
-                    <i class="fa fa-align-justify"></i><span>Quản Lý Nhà cung cấp</span>
-                </a>
-            </li>
-
-            <li class="">
-                <a href="{{ route('admin.brand.index') }}">
-                    <i class="fa fa-id-card"></i><span>Quản Lý Thương hiệu</span>
-                </a>
-            </li>
-
-            <li class="">
-                <a href="{{ route('admin.order.index') }}">
-                    <i class="fa fa-cart-plus"></i><span>Quản lý đơn hàng</span>
-                </a>
-            </li>
-
-            <li class="">
-                <a href="{{ route('admin.article.index') }}">
-                    <i class="fa  fa-newspaper-o"></i><span>Quản lý tin tức</span>
-                </a>
-            </li>
-
-            <li class="">
-                <a href="{{ route('admin.contact.index') }}">
-                    <i class="fa fa-phone"></i> <span>Quản lý Liên Hệ</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="{{ route('admin.user.index') }}">
-                    <i class="fa fa-user"></i><span>Quản lý người dùng</span>
-                </a>
-            </li>
-
-            <li class="">
-                <a href="{{ route('admin.setting.index') }}">
-                    <i class="fa fa-gear"></i><span>Cài đặt</span>
+                    <i class="fa fa-dashboard"></i>
+                    <span>Bảng điều khiển</span>
                 </a>
             </li>
 
             <li>
-                <a href="{{ route('admin.logout')}}">
-                    <i class="fa fa-optin-monster">
-                        <span>Đăng xuất</span>
-                    </i>
+                <a href="{{ route('admin.category.index')}}">
+                    <i class="fa fa-folder-open-o"></i>
+                    <span>Quản Lý Danh Mục</span>
                 </a>
             </li>
 
+            <li>
+                <a href="{{ route('admin.banner.index')}}">
+                    <i class="fa fa-photo"></i>
+                    <span>Quản Lý Banner</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('admin.product.index')}}">
+                    <i class="fa fa-database"></i>
+                    <span>Quản Lý Sản phẩm</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('admin.vendor.index')}}">
+                    <i class="fa fa-align-justify"></i>
+                    <span>Quản Lý Nhà cung cấp</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('admin.brand.index')}}">
+                    <i class="fa fa-id-card"></i>
+                    <span>Quản Lý Thương hiệu</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('admin.order.index')}}">
+                    <i class="fa fa-cart-plus"></i>
+                    <span>Quản lý đơn hàng</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('admin.article.index')}}">
+                    <i class="fa  fa-newspaper-o"></i>
+                    <span>Quản lý tin tức</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('admin.contact.index')}}">
+                    <i class="fa fa-phone"></i>
+                    <span>Quản lý Liên Hệ</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.user.index')}}">
+                    <i class="fa fa-user"></i>
+                    <span>Quản lý người dùng</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('admin.setting.index')}}">
+                    <i class="fa fa-gear"></i>
+                    <span>Cài đặt</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.logout')}}">
+                    <i class="fa fa-optin-monster"></i>
+                    <span>Đăng xuất</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

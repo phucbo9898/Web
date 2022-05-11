@@ -1,4 +1,5 @@
 @extends('backend.layouts.main')
+
 @section('content')
     <style>
         #thongbao {
@@ -46,63 +47,62 @@
                         <div class="box-body">
                             <table class="table table-bordered">
                                 <tbody>
-                                <tr>
-                                    <td><label for="">Mã ĐH :</label></td>
-                                    <td>{{ $order->code }}</td>
-                                    <td><label>Ngày Đặt Hàng:</label></td>
-                                    <td>{{ $order->created_at }}</td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Họ tên :</label></td>
-                                    <td>{{ $order->fullname }}</td>
-                                    <td><label>Mã giảm giá</label></td>
-                                    <td>{{ $order->coupon }}</td>
-                                </tr>
-                                <tr>
-                                    <td><label>SĐT :</label> </td>
-                                    <td>{{ $order->phone }}</td>
-                                    <td><label>Tạm tính</label></td>
-                                    <td>{{ number_format($order->total) }}</td>
-                                </tr>
-                                <tr>
-                                    <td><label>Email :</label></td>
-                                    <td>{{ $order->email }}</td>
-                                    <td><label>Khuyến mại</label></td>
-                                    <td>{{ number_format($order->discount) }} đ</td>
-                                </tr>
-                                <tr>
-                                    <td><label>Địa chỉ :</label> </td>
-                                    <td colspan="">{{ $order->address }}</td>
-                                    <td><label>Thành tiền</label></td>
-                                    <td style="color: red">{{ number_format($order->total - $order->discount) }} đ</td>
+                                    <tr>
+                                        <td><label for="">Mã đơn hàng: </label></td>
+                                        <td>{{ $order->code }}</td>
+                                        <td><label>Ngày Đặt Hàng:</label></td>
+                                        <td>{{ $order->created_at }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="">Họ và tên: </label></td>
+                                        <td>{{ $order->fullname }}</td>
+                                        <td><label>Mã giảm giá</label></td>
+                                        <td>{{ $order->coupon }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Số điện thoại: </label> </td>
+                                        <td>{{ $order->phone }}</td>
+                                        <td><label>Tạm tính</label></td>
+                                        <td>{{ number_format($order->total) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Email: </label></td>
+                                        <td>{{ $order->email }}</td>
+                                        <td><label>Khuyến mại</label></td>
+                                        <td>{{ number_format($order->discount) }} đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Địa chỉ: </label> </td>
+                                        <td>{{ $order->address }}</td>
+                                        <td><label>Thành tiền</label></td>
+                                        <td style="color: red">{{ number_format($order->total - $order->discount) }} đ</td>
 
-                                </tr>
-                                <tr>
-                                    <td><label>Địa chỉ nhận hàng :</label> </td>
-                                    <td colspan="">
-                                        <div class="form-group">
-                                            <input class="form-control" name="address2" value="{{ $order->address2 }}">
-                                        </div>
-                                    </td>
-                                    <td><label>Trạng thái ĐH</label></td>
-                                    <td style="color: red">
-                                        <select class="form-control " name="order_status_id" style="max-width: 150px;display: inline-block;">
-                                            <option value="0">-- chọn --</option>
-                                            @foreach($order_status as $status)
-                                                <option {{ ($order->order_status_id == $status->id ? 'selected':'') }} value="{{ $status->id }}">{{ $status->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><label>Ghi chú :</label> </td>
-                                    <td colspan="3">
-                                        <div class="form-group">
-                                            <textarea name="note" class="form-control" rows="3" placeholder="">{{ $order->note }}</textarea>
-                                        </div>
-                                    </td>
-                                </tr>
-
+                                    </tr>
+                                    <tr>
+                                        <td><label>Địa chỉ nhận hàng: </label> </td>
+                                        <td colspan="">
+                                            <div class="form-group">
+                                                <input class="form-control" name="address2" value="{{ $order->address2 }}">
+                                            </div>
+                                        </td>
+                                        <td><label>Trạng thái đơn hàng</label></td>
+                                        <td style="color: red">
+                                            <select class="form-control " name="order_status_id" style="max-width: 150px;display: inline-block;">
+                                                <option value="0">-- chọn --</option>
+                                                @foreach($order_status as $status)
+                                                    <option {{ ($order->order_status_id == $status->id ? 'selected':'') }} value="{{ $status->id }}">{{ $status->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Ghi chú :</label> </td>
+                                        <td colspan="3">
+                                            <div class="form-group">
+                                                <textarea name="note" class="form-control" rows="3" placeholder="">{{ $order->note }}</textarea>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -110,13 +110,12 @@
                 </div>
                 <!-- /.box -->
                 <div class="box">
-
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tbody>
                             <tr>
-                                <th>TT</th>
-                                <th style="max-with:200px">Tên SP</th>
+                                <th>STT</th>
+                                <th style="max-with:200px">Tên phẩm</th>
                                 <th>Hình ảnh</th>
                                 <th>SKU</th>
                                 <th>Số lượng</th>
@@ -129,7 +128,7 @@
                             <!-- Lặp một mảng dữ liệu pass sang view để hiển thị -->
                             @foreach($order->details as $key => $item)
                                 <tr class=""> <!-- Thêm Class Cho Dòng -->
-                                    <td>{{ $key }}</td>
+                                    <td>{{ $key+1 }}</td>
                                     <td>
                                         <a target="_blank" href="{{route('admin.product.edit', ['id'=> $item->product_id])}}">
                                             {{$item->name}}
@@ -150,9 +149,7 @@
                         </table>
                     </div>
                     <!-- /.box-body -->
-
                 </div>
-
             </div>
             <!--/.col (right) -->
         </div>

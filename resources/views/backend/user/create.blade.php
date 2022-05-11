@@ -12,12 +12,12 @@
             <!-- left column -->
             <div class="col-md-6">
                 <!-- general form elements -->
-
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Thông tin người dùng</h3>
                     </div>
                     <!-- /.box-header -->
+                    
                     <!-- form start -->
                     <form role="form" action="{{route('admin.user.store')}}" method="post" enctype="multipart/form-data">
                         @csrf

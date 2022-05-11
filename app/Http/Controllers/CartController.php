@@ -34,9 +34,8 @@ class CartController extends GeneralController
      * @param Request $request
      * @param $id
      */
-    public function addToCart($id, $qty = 1)
+    public function addToCart($id, $qty=1)
     {
-
         $product = Product::findOrFail($id);
 
         // thông tin sẽ lưu vào giỏ
@@ -147,7 +146,11 @@ class CartController extends GeneralController
             'phone' => 'required',
             'email' => 'required|email',
             'address' => 'required',
-        ]);
+        ],[
+            'fullname.required'=>'Bạn cần nhập tên sản phẩm',
+            'phone.required'=>'Bạn cần nhập số điện thoại',
+            'email.required'=> 'Bạn cần nhập email',
+            'address.required'=> 'Bạn cần nhập địa chỉ nhận hàng']);
 
         // Lưu vào bảng đơn đặt hàng - orders
         $order = new Order();

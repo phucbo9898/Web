@@ -12,7 +12,6 @@
             <!-- left column -->
             <div class="col-md-12">
                 <!-- general form elements -->
-
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Thông tin danh mục</h3>
@@ -23,7 +22,6 @@
                         @csrf
                         @method('PUT')
                         <div class="box-body">
-
                             <div class="form-group">
                                 <label for="categoryOption">Danh mục cha</label>
                                 <select class="form-control" name="parent_id" >
@@ -31,14 +29,6 @@
                                     @foreach($category as $item)
                                         <option {{ $data ->parent_id == $item->id ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->name }}</option>
                                     @endforeach
-                        {{--            <optgroup label="Điện thoại">
-                                        <option value="samsung">Sam Sung</option>
-                                        <option value="apple">Apple</option>
-                                    </optgroup>
-                                    <optgroup label="Tablet">
-                                        <option value="samsung">SamSung</option>
-                                        <option value="apple">Apple</option>
-                                    </optgroup>--}}
                                 </select>
                             </div>
 
@@ -55,16 +45,14 @@
                                     <div class="form-group">
                                         <label for="exampleInputFile">Ảnh</label>
                                         <input type="file" id="new_image" name="new_image">
-                                    </div>
+                                    </div><br>
                                     {{-- Hiển thị ảnh cũ--}}
-                                    <br>
                                     <img src="{{ asset($data->image) }}" width="250" alt="">
                                     @if ($errors->has('new_image'))
                                         <label class="text-red" style="font-weight: 600; font-size: 15px; margin-top: 5px">&ensp;<i class="fa fa-info"></i> {{ $errors->first('new_image') }}</label>
                                     @endif
                                 </div>
-                                <div class="col-md-6">
-                                    <br>
+                                <div class="col-md-6"><br>
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" value="1" name="is_active" {{ ($data->is_active == 1) ? 'checked' : '' }}> Trạng thái hiển thị

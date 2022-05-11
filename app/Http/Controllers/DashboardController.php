@@ -26,15 +26,18 @@ class DashboardController extends Controller
 //        dd($countProduct);
         $data = Product::latest()->paginate(10);    // Lấy dữ liệu phân trang
         $users = User::all();
+        $orders = Order::latest()->paginate(5);
         $data1 = [
             'product_count'=>$product_count,
             'order_count'=>$order_count,
             'customer_count'=>$customer_count,
             'article_count'=>$article_count,
             'data'=>$data,
-            'users'=>$users
+            'users'=>$users,
+            'orders'=>$orders
         ];
         return view('backend.dashboard.index', $data1);
+    
     }
 
     /**

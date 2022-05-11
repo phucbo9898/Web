@@ -13,7 +13,7 @@
     </div>
     <div id="order">
         <section class="ftco-section">
-            <div class="container">
+            <div class="container" style="display: flex;">
                 <div class="row justify-content-center">
                     @if(!session('msg'))
                         <div class="col-xl-7 ftco-animate">
@@ -24,7 +24,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="firstname">Họ và tên</label>
-                                            <input name="fullname" type="text" class="form-control" placeholder="">
+                                            <input style="color: black !important;" name="fullname" type="text" class="form-control" placeholder="Nhập vào họ và tên khách hàng">
                                             @if ($errors->has('fullname'))
                                                 <span class="invalid-feedback" role="alert" style="color:red;">{{ $errors->first('fullname') }}</span>
                                             @endif
@@ -34,7 +34,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="phone">Điện thoại</label>
-                                            <input name="phone" type="text" class="form-control" placeholder="Nhập số điện thoại">
+                                            <input style="color: black !important;" name="phone" type="text" class="form-control" placeholder="Nhập số điện thoại">
                                             @if ($errors->has('phone'))
                                                 <span class="invalid-feedback" role="alert" style="color:red;">{{ $errors->first('phone') }}</span>
                                             @endif
@@ -43,7 +43,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input name="email" type="text" class="form-control" placeholder="Nhập email của bạn">
+                                            <input style="color: black !important;" name="email" type="text" class="form-control" placeholder="Nhập email của bạn">
                                             @if ($errors->has('email'))
                                                 <span class="invalid-feedback" role="alert" style="color:red;">{{ $errors->first('email') }}</span>
                                             @endif
@@ -53,7 +53,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="towncity">Địa chỉ nhận hàng</label>
-                                            <input type="text" class="form-control" placeholder="" name="address">
+                                            <input style="color: black !important;" type="text" class="form-control" placeholder="Nhập địa chỉ nhận hàng" name="address">
                                             @if ($errors->has('address'))
                                                 <span class="invalid-feedback" role="alert" style="color:red;">{{ $errors->first('address') }}</span>
                                             @endif
@@ -63,7 +63,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="phone">Ghi chú</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input style="color: black !important;" type="text" class="form-control" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -83,4 +83,6 @@
     </div>
 @endsection
 
+<style>
 
+</style>

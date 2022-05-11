@@ -94,8 +94,6 @@
                     </form>
                 </div>
                 <!-- /.box -->
-
-
             </div>
             <!--/.col (right) -->
         </div>
@@ -106,12 +104,6 @@
 
 @section('script')
     <script type="text/javascript">
-        // $(function () {
-        //     var _ckeditor = _ckeditor.replace('editor1');
-        //     _ckeditor.config.height = 500;
-        //     var _ckeditor = _ckeditor.replace('editor1');
-        //     _ckeditor.config.width = 200;
-        // })
         $(function (){
             var _ckeditor = CKEDITOR.replace( 'editor1',{
                 filebrowserBrowseUrl: '{{ asset('/backend/plugins/ckfinder/ckfinder.html') }}',
@@ -123,7 +115,6 @@
             } );
             _ckeditor.config.height = 200;
         })
-
     </script>
 @endsection
 

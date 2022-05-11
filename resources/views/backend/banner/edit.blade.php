@@ -12,16 +12,16 @@
             <!-- left column -->
             <div class="col-md-12">
                 <!-- general form elements -->
-
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Thông tin Banner</h3>
                     </div>
                     <!-- /.box-header -->
+
                     <!-- form start -->
                     <form role="form" action="{{route('admin.banner.update', ['id' => $data->id ]) }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        {{--                        có thể dùng @method('PUT')--}}
+                        {{--Có thể dùng @method('PUT')--}}
                         @method('PATCH')
                         <div class="box-body">
 
@@ -100,8 +100,6 @@
                     </form>
                 </div>
                 <!-- /.box -->
-
-
             </div>
             <!--/.col (right) -->
         </div>
@@ -111,12 +109,6 @@
 
 @section('script')
     <script type="text/javascript">
-        // $(function () {
-        //     var _ckeditor = _ckeditor.replace('editor1');
-        //     _ckeditor.config.height = 500;
-        //     var _ckeditor = _ckeditor.replace('editor1');
-        //     _ckeditor.config.width = 200;
-        // })
         $(function (){
             var _ckeditor = CKEDITOR.replace( 'editor1',{
                 filebrowserBrowseUrl: '{{ asset('/backend/plugins/ckfinder/ckfinder.html') }}',
@@ -128,6 +120,5 @@
             } );
             _ckeditor.config.height = 200;
         })
-
     </script>
 @endsection

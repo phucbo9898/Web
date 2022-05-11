@@ -3,13 +3,8 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Danh sách thương hiệu <a href="{{route('admin.brand.create')}}" class="btn bg-purple"><i class="fa fa-plus"></i> Thêm thương hiệu</a>
+            Danh sách thương hiệu <a href="{{route('admin.brand.create')}}" class="btn bg-purple" style="margin-left: 10px;"><i class="fa fa-plus"></i> Thêm thương hiệu</a>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-            <li><a href="#">Tables</a></li>
-            <li class="active">Brands</li>
-        </ol>
     </section>
 
     <section class="content">
@@ -19,7 +14,7 @@
                     <div class="box-header">
                         <h3 class="box-title">Thông tin danh sách thương hiệu</h3>
                     </div>
-                    <!-- /.box-header -->
+                    <!-- /box-header -->
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
@@ -40,7 +35,7 @@
                                         <td>{{ $item -> name }}</td>
                                         <td>
                                             @if($item->image)
-                                                {{--                                               Kiểm tra hình ảnh tồn tại --}}
+                                                {{--Kiểm tra hình ảnh tồn tại --}}
                                                 <img src="{{ asset($item->image) }}" width="100" height="75" alt="">
                                             @endif
                                         </td>
@@ -51,7 +46,7 @@
                                             <a href="{{ route('admin.brand.edit', ['id' => $item->id ]) }}" class="btn btn-flat bg-purple">
                                                 <i class="fa fa-pencil-square"></i>
                                             </a>
-                                            {{-------------------------------------------------------------------------------------------------}}
+                                            
                                             {{----------------Xóa-------------}}
                                             <form action="{{ route('admin.brand.destroy', ['id'=> $item->id])}}" style="display: inline-block;" method="POST">
                                                 @csrf   {{-----------------Chống bảo mật---------------}}
@@ -71,7 +66,6 @@
         </div>
         <!-- /.row -->
     </section>
-
 @endsection
 
 

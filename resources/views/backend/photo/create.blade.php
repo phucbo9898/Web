@@ -12,17 +12,15 @@
             <!-- left column -->
             <div class="col-md-12">
                 <!-- general form elements -->
-
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Thông tin photo</h3>
                     </div>
                     <!-- /.box-header -->
+
                     <!-- form start -->
                     <form role="form" action="" method="post" enctype="multipart/form-data">
-
                         <div class="box-body">
-
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tiêu đề</label>
                                 <input type="text" class="form-control" id="title" name="title" placeholder="Nhập tên tiêu đề">
@@ -88,8 +86,6 @@
                     </form>
                 </div>
                 <!-- /.box -->
-
-
             </div>
             <!--/.col (right) -->
         </div>
